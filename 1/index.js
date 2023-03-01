@@ -1,12 +1,11 @@
 // execicio 1
 
-let numero = [];
+let a = 1;
+let b = 2;
+let c = a;
+console.log(a + " e " + b);
+a = b;
 
-for (let i = 0; numero.length < 101; i++) {
-  numero.push(i);
-  if (numero[i] % 2 !== 0) {
-    console.log(numero[i]);
-  } else {
-    console.log("Seu numero é par");
-  }
-}
+b = c;
+
+console.log(a + " e " + b);

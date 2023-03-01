@@ -4,8 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="index.js" defer></script>
+    <title>Form IMC</title>
+    <script src="index.js" type="module" defer></script>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <h1 id="titulo">Calculadora <strong>IMC</strong></h1>
+      <form>
+        <label for="peso"></label>
+        <input
+          type="text"
+          name="peso"
+          id="peso"
+          placeholder="Escreva seu peso..."
+        />
+        <label for="altura"></label>
+        <input
+          type="text"
+          name="altura"
+          id="altura"
+          placeholder="Escreva a sua altura..."
+        />
+        <button id="button" type="submit">Calcular</button>
+        <div id="resultado">
+          <h3 id="h3">40kg/m2</h3>
+        </div>
+      </form>
+    </main>
+  </body>
 </html>
