@@ -1,30 +1,41 @@
-import calcularIMC from "./calculoImc";
+const main = document.querySelector("main");
+const pesoInput = document.getElementById("peso");
+const alturaInput = document.getElementById("altura");
+const teclasPermitidas = [
+  ",",
+  "9",
+  "8",
+  "7",
+  "6",
+  "5",
+  "4",
+  "3",
+  "2",
+  "1",
+  "0",
+  ".",
+  " ",
+];
 
-let opcao = "";
+console.log(pesoInput);
 
-while (opcao !== "2") {
-  opcao = prompt(
-    "Opções da calculadora: \n\n 1- Calcular Imc \n 2- Sair da calculadora"
-  );
-
-  switch (opcao) {
-    case "1":
-      const peso = parseFloat(
-        prompt("Escreva o seu peso em kg: ").replace(",", ".")
-      );
-      const altura = parseFloat(
-        prompt("Escreva a sua altura em metros: ").replace(",", ".")
-      );
-
-      const { imc, classificacao, consequencia } = calcularIMC(peso, altura);
-      //Mostrando resultado utilizando template string
-      alert(`Seu IMC é ${imc.toFixed(1)} classificado como "${classificacao}"
-e as consequencias são: ${consequencia}`);
-      break;
-    case "2":
-      alert("Saindo da calculadora");
-      break;
-    default:
-      alert("Erro...");
+pesoInput.addEventListener("keydown", function (ev) {
+  ev.preventDefault();
+  if (teclasPermitidas.includes(ev.key)) {
+    pesoInput.value += ev.key;
+    return;
   }
-}
+  if (ev.key === "Backspace") {
+    pesoInput.value = pesoInput.value.slice(0, -1);
+  }
+});
+alturaInput.addEventListener("keydown", function (ev) {
+  ev.preventDefault();
+  if (teclasPermitidas.includes(ev.key)) {
+    alturaInput.value += ev.key;
+    return;
+  }
+  if (ev.key === "Backspace") {
+    alturaInput.value = alturaInput.value.slice(0, -1);
+  }
+});
