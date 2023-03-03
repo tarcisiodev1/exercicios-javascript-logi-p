@@ -1,6 +1,8 @@
+import calcularIMC from "./js/calculoImc.js";
 const main = document.querySelector("main");
 const pesoInput = document.getElementById("peso");
 const alturaInput = document.getElementById("altura");
+const h3 = document.getElementById("h3");
 const teclasPermitidas = [
   ",",
   "9",
@@ -39,3 +41,16 @@ alturaInput.addEventListener("keydown", function (ev) {
     alturaInput.value = alturaInput.value.slice(0, -1);
   }
 });
+
+const button = document
+  .querySelector("button")
+  .addEventListener("click", function (ev) {
+    ev.preventDefault(); // impedir o evento submit
+    let peso1 = pesoInput.value.replace(",", ".");
+    let altura1 = alturaInput.value.replace(",", ".");
+    const { imc, classificacao, consequencia } = calcularIMC(peso1, altura1);
+    h3.innerText = `Seu IMC é ${imc.toFixed(
+      1
+    )} classificado como "${classificacao}"
+    e as consequencias são: ${consequencia}`;
+  });
