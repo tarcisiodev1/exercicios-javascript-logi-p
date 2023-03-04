@@ -49,6 +49,7 @@ const button = document
     let peso1 = pesoInput.value.replace(",", ".");
     let altura1 = alturaInput.value.replace(",", ".");
     const { imc, classificacao, consequencia } = calcularIMC(peso1, altura1);
+    console.log(Date(imc));
     h3.innerText = `Seu IMC é ${imc.toFixed(
       1
     )} classificado como "${classificacao}"
