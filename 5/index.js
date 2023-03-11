@@ -1,5 +1,4 @@
 import calcularIMC from "./js/calculoImc.js";
-const main = document.querySelector("main");
 const pesoInput = document.getElementById("peso");
 const alturaInput = document.getElementById("altura");
 const h3 = document.getElementById("h3");
